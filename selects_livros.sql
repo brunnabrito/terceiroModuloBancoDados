@@ -131,7 +131,7 @@ SELECT au.nome "Nome do autor", ed.nome "Nome da Editora"
 	FROM livros lv
 	JOIN livros_autores la ON lv.isbn = la.isbn
 	JOIN autores au ON la.id_autor = au.id_autores
-	JOIN editoras ed ON ed.id_editoras = lv.id_editora
+	JOIN editoras ed ON ed.id_editoras = lv.id_editora;
 	
 
 -- Exibir o(s) nome(s) do(s) autor(es) que publicaram livro no último ano de publicação entre os 
@@ -143,7 +143,7 @@ SELECT au.nome "Nome do autor", lv.ano_publicacao "Ano de publicação"
 	JOIN autores au ON la.id_autor = au.id_autores
 	GROUP BY au.nome, lv.ano_publicacao 
 	HAVING lv.ano_publicacao = MAX(lv.ano_publicacao)
-	ORDER BY au.nome
+	ORDER BY au.nome;
 
 -- Listar os nomes dos autores que publicaram livros pela editora ‘Melhoramentos’.
 SELECT au.nome "Nome do autor", ed.nome "Nome da Editora"
@@ -151,26 +151,26 @@ SELECT au.nome "Nome do autor", ed.nome "Nome da Editora"
 	JOIN livros_autores la ON lv.isbn = la.isbn
 	JOIN autores au ON la.id_autor = au.id_autores
 	JOIN editoras ed ON ed.id_editoras = lv.id_editora
-	WHERE ed.nome = 'Melhoramentos'
+	WHERE ed.nome = 'Melhoramentos';
 	
 -- Listar título do livro, nome do autor e nome da editora.
 SELECT lv.titulo "Titulo do livro", au.nome "Nome do autor", ed.nome "Nome da Editora"
 	FROM livros lv
 	JOIN livros_autores la ON lv.isbn = la.isbn
 	JOIN autores au ON la.id_autor = au.id_autores
-	JOIN editoras ed ON ed.id_editoras = lv.id_editora
+	JOIN editoras ed ON ed.id_editoras = lv.id_editora;
 
 --Deletar o livro com titulo igual a Java para Nerds.
 DELETE FROM livros
-	WHERE titulo = 'Java para Nerds'
+	WHERE titulo = 'Java para Nerds';
 	
-select * from livros
+select * from livros;
 
 -- Deletar todos os registros da tabela conferencias.
-Truncate table conferencias
+Truncate table conferencias;
 
 
-select * from conferencias
+select * from conferencias;
 
 
 

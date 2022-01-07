@@ -43,7 +43,7 @@ SELECT *
 -- Selecione os funcionários que nasceram entre 1960 e 1970
 SELECT *
 	FROM "Employee" 
-	WHERE "BirthDate" BETWEEN '1960-01-01' AND '1969-12-31'
+	WHERE "BirthDate" BETWEEN '1960-01-01' AND '1969-12-31';
 
 -- Liste o nome dos usuários e a origem deles de modo que se a origem 
 	-- dele for "Brazil" o valor mostrado deve ser Brasil, caso contrário
