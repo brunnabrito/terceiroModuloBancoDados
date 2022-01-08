@@ -154,11 +154,14 @@ SELECT au.nome "Nome do autor", ed.nome "Nome da Editora"
 	WHERE ed.nome = 'Melhoramentos';
 	
 -- Listar título do livro, nome do autor e nome da editora.
-SELECT lv.titulo "Titulo do livro", au.nome "Nome do autor", ed.nome "Nome da Editora"
-	FROM livros lv
-	JOIN livros_autores la ON lv.isbn = la.isbn
-	JOIN autores au ON la.id_autor = au.id_autores
-	JOIN editoras ed ON ed.id_editoras = lv.id_editora;
+SELECT au.nome autor,
+	MAX(lv.ano_publicacao) Ano
+    FROM livros lv
+    INNER JOIN livros_autores la ON lv.isbn = la.isbn
+    INNER JOIN autores au ON la.id_autor = au.id_autores
+	where lv.ano_publicacao = (SELECT MAX(ano_publicacao) from livros)
+    GROUP BY au.nome
+    ORDER BY au.nome
 
 --Deletar o livro com titulo igual a Java para Nerds.
 DELETE FROM livros
